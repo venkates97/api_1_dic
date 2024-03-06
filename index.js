@@ -38,13 +38,25 @@ document.body.append(outBoxEle);
 async function getData() {
     const get_text =document.getElementById("getWord").value;
     console.log(get_text);
-    var raw_data =await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${get_text}`);
+    try {
+        var raw_data =await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${get_text}`);
+        var raw_data =await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${get_text}`);
     var next_data =await raw_data.json();
     document.getElementById("outArea").innerHTML= `
     <b>Meaning:</b> ${next_data[0].meanings[0].definitions[0].definition}
     <br>
-    <b>Synomys:</b>${(next_data[0].meanings[0].synonyms)}
+    ${(next_data[0].meanings[0].synonyms).length > 0 ? "<b>Synomys: </b>"+(next_data[0].meanings[0].synonyms) : "" }
     `;
+    } catch (error) {
+        document.getElementById("outArea").innerHTML= `Please Enter Correct Spelling`;
+    }
+    // var raw_data =await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${get_text}`);
+    // var next_data =await raw_data.json();
+    // document.getElementById("outArea").innerHTML= `
+    // <b>Meaning:</b> ${next_data[0].meanings[0].definitions[0].definition}
+    // <br>
+    // <b>Synomys:</b>${(next_data[0].meanings[0].synonyms)}
+    // `;
 
 }
 
