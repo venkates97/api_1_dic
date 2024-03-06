@@ -1,0 +1,28 @@
+#boxEle{
+    width: 50%;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    align-items: center;
+}
+#getWord{
+    width:50%;
+    margin-top:20px;
+}
+#outArea{
+    height:auto;
+    background-color: antiquewhite;
+    margin-top:20px;
+}
+#button{
+    margin: 20px;
+}
+body{
+    text-align:center;
+}
+#contentBox{
+    display: flex;
+    justify-content: center;
+}
